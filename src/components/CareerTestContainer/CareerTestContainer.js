@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ProgressBar } from "react-bootstrap";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,7 +28,6 @@ const StyledText = styled.p`
 `;
 
 const CareerTestContainer = () => {
-  const store = useStore();
   const { activeQuestion } = useSelector((state) => state);
 
   return (

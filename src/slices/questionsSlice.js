@@ -16,17 +16,25 @@ export const questionsSlice = createSlice({
     setSingleAnswer: (state, action) => {
       state.answerList = [...state.answerList, action.payload];
     },
+    setPreviouslyCommittedStatus: (state, action) => {
+      state.previouslyCommittedStatus = action.payload;
+    },
     increment: (state) => {
-      state.value += 1;
+      state.activeQuestion += 1;
     },
     decrement: (state) => {
-      state.value -= 1;
+      state.activeQuestion -= 1;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, setQuestionList, setSingleAnswer } =
-  questionsSlice.actions;
+export const {
+  increment,
+  decrement,
+  setQuestionList,
+  setSingleAnswer,
+  setPreviouslyCommittedStatus,
+} = questionsSlice.actions;
 
 export default questionsSlice.reducer;

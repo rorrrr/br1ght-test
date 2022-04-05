@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useStore } from "react-redux";
 import styled from "styled-components";
 
@@ -10,18 +10,40 @@ const StyledContainer = styled.div`
   display: block;
 `;
 
+const StyledButton = styled.button`
+  background-color: orange;
+  color: white;
+`;
+
 const QuestionsContainer = () => {
-  const store = useStore();
   const { activeQuestion } = useSelector((state) => state);
+  const [testStarted, setTestStarted] = useState(false);
 
   return (
     <StyledContainer>
-      <p>
-        Questions: {activeQuestion.activeQuestion + 1}/
-        {activeQuestion.questionList.length}
-      </p>
-      <p>Input: here</p>
-      <button>Start the Test</button>
+      {!testStarted ? (
+        <StyledButton onClick={() => setTestStarted(true)}>
+          Start the Test
+        </StyledButton>
+      ) : (
+        <div>
+          <p>
+            Questions: {activeQuestion.activeQuestion + 1}/
+            {activeQuestion.questionList.length} In a job I would be motivated
+            by
+          </p>
+          <p>
+            {activeQuestion.questionList[activeQuestion.activeQuestion].text}
+          </p>
+          <input
+            type='range'
+            class='form-range'
+            min='1'
+            max='8'
+            id='customRange2'
+          />
+        </div>
+      )}
     </StyledContainer>
   );
 };
