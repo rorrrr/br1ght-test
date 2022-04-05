@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector, useStore } from "react-redux";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
@@ -10,9 +11,15 @@ const StyledContainer = styled.div`
 `;
 
 const QuestionsContainer = () => {
+  const store = useStore();
+  const { activeQuestion } = useSelector((state) => state);
+
   return (
     <StyledContainer>
-      <p>Questions: here</p>
+      <p>
+        Questions: {activeQuestion.activeQuestion + 1}/
+        {activeQuestion.questionList.length}
+      </p>
       <p>Input: here</p>
       <button>Start the Test</button>
     </StyledContainer>

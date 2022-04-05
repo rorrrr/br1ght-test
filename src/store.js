@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from "@reduxjs/toolkit";
-import questionsReducer from "./slices/activeQuestionSlice";
+import questionsReducer from "./slices/questionsSlice";
 import userReducer from "./slices/activeUserSlice";
 
 const reducer = combineReducers({

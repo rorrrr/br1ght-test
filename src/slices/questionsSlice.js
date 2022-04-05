@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: 0,
+  answerList: [],
+  activeQuestion: 0,
+  questionList: [],
 };
 
 export const questionsSlice = createSlice({
@@ -12,7 +14,7 @@ export const questionsSlice = createSlice({
       state.questionList = action.payload;
     },
     setSingleAnswer: (state, action) => {
-      state.answerList = action.payload;
+      state.answerList = [...state.answerList, action.payload];
     },
     increment: (state) => {
       state.value += 1;
@@ -24,6 +26,7 @@ export const questionsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement } = questionsSlice.actions;
+export const { increment, decrement, setQuestionList, setSingleAnswer } =
+  questionsSlice.actions;
 
 export default questionsSlice.reducer;

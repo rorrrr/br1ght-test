@@ -4,6 +4,7 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { default_colours } from "../../common/theme_defaults";
 import QuestionsContainer from "../QuestionsContainer/QuestionsContainer";
+import { useSelector, useStore } from "react-redux";
 
 const StyledContainer = styled.div`
   margin-top: 3em;
@@ -27,14 +28,22 @@ const StyledText = styled.p`
 `;
 
 const CareerTestContainer = () => {
+  const store = useStore();
+  const { activeQuestion } = useSelector((state) => state);
+
   return (
     <StyledContainer>
       <StyledHeader>Career path test</StyledHeader>
       <StyledText>
         Complete this two minute test to get your results.
       </StyledText>
-      Your Progress 1/24
-      <ProgressBar now={5} min={1} max={24} />
+      Your Progress {activeQuestion.activeQuestion + 1}/
+      {activeQuestion.questionList.length}
+      <ProgressBar
+        now={activeQuestion.activeQuestion + 1}
+        min={1}
+        max={activeQuestion.questionList.length}
+      />
       <QuestionsContainer />
     </StyledContainer>
   );
