@@ -4,6 +4,7 @@ const initialState = {
   answerList: [],
   activeQuestion: 0,
   questionList: [],
+  previouslyCommittedStatus: false,
 };
 
 export const questionsSlice = createSlice({

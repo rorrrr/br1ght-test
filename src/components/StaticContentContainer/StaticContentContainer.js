@@ -41,9 +41,10 @@ const StyledHelmetHeader = styled.h4`
   color: ${default_colours.black};
   text-transform: uppercase;
 `;
-const StyledHeader = styled.h1`
+const StyledHeader = styled.div`
   font-weight: 600;
-  size: 36px;
+  font-size: 5vh;
+  margin-bottom: 1em
   color: ${default_colours.black};
 `;
 

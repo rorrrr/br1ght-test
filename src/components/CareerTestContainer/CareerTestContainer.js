@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { ProgressBar } from "react-bootstrap";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { default_colours } from "../../common/theme_defaults";
 import QuestionsContainer from "../QuestionsContainer/QuestionsContainer";
-import { useSelector, useStore } from "react-redux";
+import { useSelector } from "react-redux";
 
 const StyledContainer = styled.div`
   margin-top: 3em;

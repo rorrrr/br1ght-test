@@ -1,7 +1,7 @@
-import { Provider, useDispatch, useSelector, useStore } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import CareerTestContainer from "./components/CareerTestContainer/CareerTestContainer";
 import StaticContentContainer from "./components/StaticContentContainer/StaticContentContainer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { setActiveUser } from "./slices/activeUserSlice";
 import {
   setQuestionList,
@@ -9,9 +9,13 @@ import {
 } from "./slices/questionsSlice";
 import store from "./store";
 import axios from "axios";
+import { Spinner } from "react-bootstrap";
 
 const App = (user) => {
   const dispatch = useDispatch();
+  const { activeQuestion } = useSelector((state) => state);
+
+  const [loading, setLoading] = useState(true);
 
   const onLoadApiCalls = async (user) => {
     const questionsRes = await axios.get(
@@ -28,22 +32,34 @@ const App = (user) => {
       })
       .then((res) => {
         dispatch(setPreviouslyCommittedStatus(true));
+        setLoading(false);
       })
       .catch((err) => {
         console.log("err", err);
         dispatch(setPreviouslyCommittedStatus(false));
+        setLoading(false);
       });
   };
 
   useEffect(() => {
     dispatch(setActiveUser(user));
     onLoadApiCalls(user);
-  });
+  }, []);
 
   return (
     <Provider store={store}>
       <StaticContentContainer />
-      <CareerTestContainer />
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div>
+          {activeQuestion.previouslyCommittedStatus ? (
+            <div>Previously Committed</div>
+          ) : (
+            <CareerTestContainer />
+          )}
+        </div>
+      )}
     </Provider>
   );
 };

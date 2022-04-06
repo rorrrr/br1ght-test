@@ -4,11 +4,11 @@ import { default_colours } from "../../common/theme_defaults";
 
 const StyledContainer = styled.div`
   flex-grow: 1;
-  margin-top: -5rem;
+  margin-top: -3rem;
 `;
 
 const StyledCard = styled.div`
-  height: 10rem;
+  height: 8em;
   width: 25vw;
   background: white;
   border: 1px solid ${default_colours.borderGrey};
@@ -34,7 +34,7 @@ const StyledText = styled.p`
   vertical-align: middle;
   padding-left: 1em;
   padding-right: 1em;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 `;
 
 const InfoCard = ({ heading, text, icon, colour }) => {
@@ -44,7 +44,7 @@ const InfoCard = ({ heading, text, icon, colour }) => {
         {/* WIP */}
         <StyledIcon colour={colour}>{icon}</StyledIcon>
         <StyledTextContainer>
-          <h5>{heading}</h5>
+          <h6>{heading}</h6>
           <StyledText>{text}</StyledText>
         </StyledTextContainer>
       </StyledCard>
