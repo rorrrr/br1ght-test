@@ -50,7 +50,7 @@ const App = (user) => {
     <Provider store={store}>
       <StaticContentContainer />
       {loading ? (
-        <Spinner />
+        <div class='spinner-border' role='status'></div>
       ) : (
         <div>
           {activeQuestion.previouslyCommittedStatus ? (

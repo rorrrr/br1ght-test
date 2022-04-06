@@ -54,7 +54,6 @@ const QuestionsContainer = () => {
     await axios
       .request(options)
       .then((res) => {
-        // return res;
         console.log("reached here?");
         setSubmitted(true);
       })
