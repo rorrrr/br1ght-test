@@ -11,60 +11,56 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# MVP - held locally
 
-### `npm test`
+# Known Issues left to address
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Enter functionality instead of button
+- Icons for InfoCard.
 
-### `npm run build`
+# Including:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- FrontEnd built to wireframe of designs.
+- Display all questions
+- functionally complete journey
+- Local storage memory (realised unnnessary due to get /submissions determining a returning user)
+- Show off use of hooks
+- Show off Redux utilisation (Overkill for this application)
+- Responsive design
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Excluding:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Error handling/unhappy paths
+- Mobile specific view
+- Completed front end visuals
 
-### `npm run eject`
+# Visuals
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Alt text](/ReadmeImages/onlod.png "Onload")
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Landing Page displayed to a wireframe level. Made this decision mainly due to time and prioritised functionality.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Alt text](/ReadmeImages/activequiz.png "ActiveQuiz")
+Utilised hooks to manipulate state within this component while a quiz was 'started'. useState/useEffect.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Utilised redux for state management of the ActiveUser and ActiveQuestions/QuestionNumber. While this is a single page applciation with no security/authentication onLoad this is probably overkill.
 
-## Learn More
+Had I chosen not to utilise Redux I would have made my onload calls to the api and then passed down the props from App to my QuestionsContainer.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In hindsight, the application was simple enough that Context was probably fine for this applications state management. As there is no need for constantly refreshing data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Alt text](/ReadmeImages/intteset.png "basic api testing")
 
-### Code Splitting
+Utilised Jest to test/understand the api, creating random user string params to simulate new users.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Testing React Components
 
-### Analyzing the Bundle Size
+Would have liked to address some testing for InfoCard but prioritised functionality. Wasn't utlising TDD, would have like to.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Alt text](/ReadmeImages/styledflex.png "Styled components/flex")
 
-### Making a Progressive Web App
+Utilised flexbox for page layout.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Assuming there would be a shared component library for consistency across the website (or integration with blueprintjs), styled components seems like a good choice.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Utilised bootstrap to speed up development towards the end with loading indicators/progressbar.
